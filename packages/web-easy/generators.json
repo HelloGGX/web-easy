@@ -1,0 +1,14 @@
+{
+  "generators": {
+    "e-react": {
+      "factory": "./src/generators/e-react/generator",
+      "schema": "./src/generators/e-react/schema.json",
+      "description": "e-react generator"
+    },
+    "e-vue": {
+      "factory": "./src/generators/e-vue/generator",
+      "schema": "./src/generators/e-vue/schema.json",
+      "description": "e-vue generator"
+    }
+  }
+}
