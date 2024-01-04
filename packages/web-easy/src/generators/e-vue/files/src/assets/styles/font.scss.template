@@ -1,0 +1,18 @@
+/* OPPOSans-Regular */
+@font-face {
+  font-family: "OPPOSans-regular";
+  src: local("OPPOSans-regular"),
+    url(@/assets/fonts/OPPOSans-R.ttf) format("truetype");
+}
+/* OPPOSans-bold */
+@font-face {
+  font-family: "OPPOSans-bold";
+  src: local("OPPOSans-bold"),
+    url(@/assets/fonts/OPPOSans-B.ttf) format("truetype");
+}
+/* OPPOSans-heavy */
+@font-face {
+  font-family: "OPPOSans-heavy";
+  src: local("OPPOSans-heavy"),
+    url(@/assets/fonts/OPPOSans-H.ttf) format("truetype");
+}

@@ -11,7 +11,7 @@ export async function eReactGenerator(
   tree: Tree,
   options: EReactGeneratorSchema
 ) {
-  const projectRoot = `libs/${options.name}`;
+  const projectRoot = `/${options.name}`;
   addProjectConfiguration(tree, options.name, {
     root: projectRoot,
     projectType: 'library',
