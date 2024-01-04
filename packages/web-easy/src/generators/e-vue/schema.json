@@ -6,13 +6,18 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "",
+      "description": "项目的文件夹名称",
       "$default": {
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "What name would you like to use?"
+      "x-prompt": "请问，你的项目文件夹的名称叫什么？我会把配置文件加进去"
+    },
+    "usePrettier": {
+      "type": "boolean",
+      "description": "是否加入prettier配置",
+      "x-prompt": "需要prettier吗？"
     }
   },
-  "required": ["name"]
+  "required": ["name", "usePrettier"]
 }

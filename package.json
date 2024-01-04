@@ -2,7 +2,12 @@
   "name": "web-easy",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "format:check": "prettier --ignore-path .prettierignore --check '**/*.{js,ts,tsx,css,yml,json}'",
+    "format:write": "prettier --ignore-path .prettierignore --write \"**/*.+(js|json|ts|tsx|vue)\"",
+    "lint": "nx run-many -t lint",
+    "test": "nx run-many -t test"
+  },
   "private": true,
   "devDependencies": {
     "@nx/eslint": "17.2.8",
