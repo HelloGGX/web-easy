@@ -1,14 +1,27 @@
 {
   "generators": {
-    "e-react": {
-      "factory": "./src/generators/e-react/generator",
-      "schema": "./src/generators/e-react/schema.json",
-      "description": "e-react generator"
+    "init": {
+      "factory": "./src/generators/init/generator",
+      "schema": "./src/generators/init/schema.json",
+      "description": "Initializes the @nxkit/style-dictionary plugin."
     },
-    "e-vue": {
-      "factory": "./src/generators/e-vue/generator",
-      "schema": "./src/generators/e-vue/schema.json",
-      "description": "e-vue generator"
+    "library": {
+      "factory": "./src/generators/library/generator",
+      "schema": "./src/generators/library/schema.json",
+      "aliases": ["lib"],
+      "x-type": "library",
+      "description": "Creates a Style Dictionary library."
+    },
+    "extension": {
+      "factory": "./src/generators/extension/generator",
+      "schema": "./src/generators/extension/schema.json",
+      "description": "Generates Style Dictionary extensions configuration for a project.",
+      "aliases": ["ext"]
+    },
+    "preset": {
+      "factory": "./src/generators/preset/generator",
+      "schema": "./src/generators/preset/schema.json",
+      "description": "preset generator"
     }
   }
 }

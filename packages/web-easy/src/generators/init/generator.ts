@@ -41,8 +41,6 @@ export async function eVueGenerator(tree: Tree, options: EVueGeneratorSchema) {
     scope: scopeName,
   };
 
-  console.log(resolveOptions);
-
   const projectRoot = `/${options.name}`;
   // 修改packageJson
   updatePackageJson(tree);
