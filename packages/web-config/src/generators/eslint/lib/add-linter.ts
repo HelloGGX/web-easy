@@ -23,7 +23,9 @@ export async function addLinter(
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     return () => {};
   }
-  // 确保了@nx/eslint包被安装
+  /**
+   * 确保@nx/eslint包被安装
+   */
   ensurePackage('@nx/eslint', NX_VERSION);
 
   const lintTask = await lintProjectGenerator(tree, {
@@ -36,11 +38,16 @@ export async function addLinter(
 
   tasks.push(lintTask);
 
+  /**更新.eslintrc.json */
   updateJson(
     tree,
     joinPathFragments(projectRoot, '.eslintrc.json'),
     extendVueEslintJson
   );
+
+  /**
+   * 更新eslint需要的依赖
+   */
   const installTask = await addDependenciesToPackageJson(
     tree,
     extraEslintDependencies.dependencies,

@@ -15,12 +15,18 @@ export async function eslintGenerator(
     skipFormat: true,
   });
 
+  /**
+   * 添加eslint配置
+   */
   const lintTask = await addLinter(tree, normalizedOptions);
 
   if (!options.skipFormat) {
     await formatFiles(tree);
   }
 
+  /**
+   * 执行任务队列
+   */
   return runTasksInSerial(initTask, lintTask);
 }
 

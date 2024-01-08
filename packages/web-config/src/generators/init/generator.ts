@@ -17,7 +17,7 @@ export async function initGenerator(host: Tree, schema: InitGeneratorSchema) {
     skipFormat: true,
   });
 
-  addPluginToNxJson('@nxext/vue', host);
+  addPluginToNxJson('@web-easy/web-config', host);
 
   if (!schema.skipFormat) {
     await formatFiles(host);
