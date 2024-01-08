@@ -10,10 +10,10 @@
       "schema": "./src/generators/eslint/schema.json",
       "description": "eslint generator"
     },
-    "prettier": {
-      "factory": "./src/generators/prettier/generator",
-      "schema": "./src/generators/prettier/schema.json",
-      "description": "prettier generator"
+    "application": {
+      "factory": "./src/generators/application/generator",
+      "schema": "./src/generators/application/schema.json",
+      "description": "application generator"
     }
   }
 }

@@ -1,8 +1,3 @@
-export const enum Preset {
-  VUE = 'vue',
-  REACT = 'react',
-}
-
 export interface EslintGeneratorSchema {
   name: string;
   preset: Preset;

@@ -12,28 +12,13 @@
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "你正在使用的项目文件夹的名称是什么？",
       "pattern": "^[a-zA-Z].*$"
     },
     "preset": {
-      "description": "用于生成eslint的预设",
+      "description": "判断前端框架",
       "type": "string",
       "default": "vue",
-      "enum": ["vue", "react"],
-      "x-prompt": {
-        "message": "你的项目使用的前端框架是什么？",
-        "type": "list",
-        "items": [
-          {
-            "value": "vue",
-            "label": "vue"
-          },
-          {
-            "value": "react",
-            "label": "react"
-          }
-        ]
-      }
+      "enum": ["vue", "react"]
     },
     "tags": {
       "type": "string",

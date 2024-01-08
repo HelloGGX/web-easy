@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "Application",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "你的项目名称",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "你正在使用的项目文件夹的名称是什么？",
+      "pattern": "^[a-zA-Z].*$"
+    },
+    "preset": {
+      "description": "判断前端框架",
+      "type": "string",
+      "default": "vue",
+      "enum": ["vue", "react"],
+      "x-prompt": {
+        "message": "你的项目使用的前端框架是什么？",
+        "type": "list",
+        "items": [
+          {
+            "value": "vue",
+            "label": "vue"
+          },
+          {
+            "value": "react",
+            "label": "react"
+          }
+        ]
+      }
+    },
+    "needEslint": {
+      "description": "是否需要eslint",
+      "type": "boolean",
+      "default": true,
+      "x-prompt": {
+        "message": "需要eslint?",
+        "type": "boolean"
+      }
+    }
+  },
+  "required": ["name"]
+}
