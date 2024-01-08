@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "Init",
+  "title": "初始化 @nxkit/web-config ",
+  "type": "object",
+  "properties": {
+    "skipFormat": {
+      "type": "boolean",
+      "description": "忽略格式化",
+      "default": false
+    },
+    "skipPackageJson": {
+      "type": "boolean",
+      "description": "不需要安装依赖到 `package.json`",
+      "default": false
+    }
+  },
+  "required": []
+}

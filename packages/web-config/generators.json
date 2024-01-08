@@ -1,0 +1,19 @@
+{
+  "generators": {
+    "init": {
+      "factory": "./src/generators/init/generator",
+      "schema": "./src/generators/init/schema.json",
+      "description": "初始化需要的第三方库"
+    },
+    "eslint": {
+      "factory": "./src/generators/eslint/generator",
+      "schema": "./src/generators/eslint/schema.json",
+      "description": "eslint generator"
+    },
+    "prettier": {
+      "factory": "./src/generators/prettier/generator",
+      "schema": "./src/generators/prettier/schema.json",
+      "description": "prettier generator"
+    }
+  }
+}

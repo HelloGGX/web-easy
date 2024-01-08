@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "Eslint",
+  "title": " eslint generator",
+  "description": "创建一个eslint配置文件",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "你的项目名称",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "你正在使用的项目文件夹的名称是什么？",
+      "pattern": "^[a-zA-Z].*$"
+    },
+    "preset": {
+      "description": "用于生成eslint的预设",
+      "type": "string",
+      "default": "vue",
+      "enum": ["vue", "react"],
+      "x-prompt": {
+        "message": "你的项目使用的前端框架是什么？",
+        "type": "list",
+        "items": [
+          {
+            "value": "vue",
+            "label": "vue"
+          },
+          {
+            "value": "react",
+            "label": "react"
+          }
+        ]
+      }
+    },
+    "tags": {
+      "type": "string",
+      "description": "Add tags to the project (used for linting)",
+      "alias": "t"
+    },
+    "directory": {
+      "type": "string",
+      "description": "A directory where the project is placed",
+      "alias": "dir",
+      "x-completion-type": "directory"
+    },
+    "linter": {
+      "description": "The tool to use for running lint checks.",
+      "type": "string",
+      "enum": ["eslint", "none"],
+      "default": "eslint"
+    },
+    "skipFormat": {
+      "description": "Skip formatting files.",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": ["name", "preset"]
+}
