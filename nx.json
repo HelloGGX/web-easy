@@ -34,6 +34,5 @@
       }
     }
   },
-  "nxCloudAccessToken": "MWM5NGZiMTgtY2M3Yy00ZDM0LTk4ZGEtZjgzZjdiY2RjYTk5fHJlYWQtd3JpdGU=",
-  "plugins": ["@nxext/vue"]
+  "nxCloudAccessToken": "MWM5NGZiMTgtY2M3Yy00ZDM0LTk4ZGEtZjgzZjdiY2RjYTk5fHJlYWQtd3JpdGU="
 }
