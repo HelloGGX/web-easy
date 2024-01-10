@@ -15,7 +15,6 @@ export async function eslintGenerator(
 ) {
   const tasks: GeneratorCallback[] = [];
   const normalizedOptions = normalizeOptions(tree, options);
-  console.log(normalizedOptions);
   /**
    * 添加eslint配置
    */

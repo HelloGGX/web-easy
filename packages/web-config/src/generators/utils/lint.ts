@@ -1,12 +1,18 @@
 import {
+  eslintPluginParserVersion,
+  eslintPluginPrettierReactVersion,
   eslintPluginPrettierVueVersion,
+  eslintPluginReactVersion,
+  eslintPluginTypescriptVersion,
   eslintPluginTypescriptVueVersion,
   eslintPluginVueVersion,
+  eslintVersion,
 } from './versions';
 
 export const extraVueEslintDependencies = {
   dependencies: {},
   devDependencies: {
+    'eslint': eslintVersion,
     'eslint-plugin-vue': eslintPluginVueVersion,
     '@vue/eslint-config-prettier': eslintPluginPrettierVueVersion,
     '@vue/eslint-config-typescript': eslintPluginTypescriptVueVersion,
@@ -32,11 +38,11 @@ export const extendVueEslintJson = (json: any) => {
 export const extraReactEslintDependencies = {
   dependencies: {},
   devDependencies: {
-    '@typescript-eslint/eslint-plugin': '^6.18.1',
-    '@typescript-eslint/parser': '^6.18.1',
-    eslint: '^8.56.0',
-    "eslint-config-prettier": "^9.1.0",
-    'eslint-plugin-react': '^7.33.2',
+    '@typescript-eslint/eslint-plugin': eslintPluginTypescriptVersion,
+    '@typescript-eslint/parser': eslintPluginParserVersion,
+    'eslint': eslintVersion,
+    "eslint-config-prettier": eslintPluginPrettierReactVersion,
+    'eslint-plugin-react': eslintPluginReactVersion,
   },
 };
 
