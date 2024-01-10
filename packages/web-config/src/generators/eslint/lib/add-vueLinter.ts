@@ -10,28 +10,26 @@ import {
 import { Linter, lintProjectGenerator } from '@nx/eslint';
 import { NormalizedEslintGeneratorSchema } from '../schema';
 import { mapLintPattern } from './map-lint-pattern';
-import { extendVueEslintJson, extraEslintDependencies } from '../../utils/lint';
+import { extendVueEslintJson, extraVueEslintDependencies } from '../../utils/lint';
 
-export async function addLinter(
+export async function addVueLinter(
   tree: Tree,
   normalizedOptions: NormalizedEslintGeneratorSchema
 ) {
-  const { projectName, projectRoot, linter } = normalizedOptions;
+  const { projectName, projectRoot, linter, skipFormat } = normalizedOptions;
 
   const tasks: GeneratorCallback[] = [];
   if (!linter || linter === Linter.None) {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     return () => {};
   }
-  /**
-   * 确保@nx/eslint包被安装
-   */
+
   ensurePackage('@nx/eslint', NX_VERSION);
 
   const lintTask = await lintProjectGenerator(tree, {
     project: projectName,
     linter: Linter.EsLint,
-    skipFormat: true,
+    skipFormat: skipFormat,
     tsConfigPaths: [joinPathFragments(projectRoot, 'tsconfig.json')],
     eslintFilePatterns: [mapLintPattern(projectRoot, '{ts,tsx,js,jsx,vue}')],
   });
@@ -50,9 +48,9 @@ export async function addLinter(
    */
   const installTask = await addDependenciesToPackageJson(
     tree,
-    extraEslintDependencies.dependencies,
+    extraVueEslintDependencies.dependencies,
     {
-      ...extraEslintDependencies.devDependencies,
+      ...extraVueEslintDependencies.devDependencies,
     }
   );
   tasks.push(installTask);

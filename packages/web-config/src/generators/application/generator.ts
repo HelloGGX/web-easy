@@ -9,15 +9,17 @@ export async function applicationGenerator(
 ) {
   const resolveOptions = {
     ...options,
-    skipFormat: true,
+    skipFormat: false,
   };
   // 初始化
   const initTask = await initGenerator(tree, resolveOptions);
   
+  // 初始化eslint
   const lintTask = await eslintGenerator(tree, {
     name: resolveOptions.name,
     skipFormat: resolveOptions.skipFormat,
-    preset: resolveOptions.preset
+    preset: resolveOptions.preset,
+    linter: 'eslint'
   });
   /**
    * 执行任务队列

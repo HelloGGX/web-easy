@@ -1,33 +1,39 @@
-import { formatFiles, runTasksInSerial, Tree } from '@nx/devkit';
+import {
+  formatFiles,
+  GeneratorCallback,
+  runTasksInSerial,
+  Tree,
+} from '@nx/devkit';
 import { EslintGeneratorSchema } from './schema';
 import { normalizeOptions } from './lib/normalize-options';
-import initGenerator from '../init/generator';
-import { addLinter } from './lib/add-linter';
+import { addVueLinter } from './lib/add-vueLinter';
+import { addReactLinter } from './lib/add-reactLinter';
 
 export async function eslintGenerator(
   tree: Tree,
   options: EslintGeneratorSchema
 ) {
+  const tasks: GeneratorCallback[] = [];
   const normalizedOptions = normalizeOptions(tree, options);
-
-  const initTask = await initGenerator(tree, {
-    ...options,
-    skipFormat: true,
-  });
-
+  console.log(normalizedOptions);
   /**
    * 添加eslint配置
    */
-  const lintTask = await addLinter(tree, normalizedOptions);
+  if (normalizedOptions.preset === 'vue') {
+    const lintTask = await addVueLinter(tree, normalizedOptions);
+    tasks.push(lintTask);
+  } else {
+    const lintTask = await addReactLinter(tree, normalizedOptions);
+    tasks.push(lintTask);
+  }
 
   if (!options.skipFormat) {
     await formatFiles(tree);
   }
-
   /**
    * 执行任务队列
    */
-  return runTasksInSerial(initTask, lintTask);
+  return runTasksInSerial(...tasks);
 }
 
 export default eslintGenerator;
