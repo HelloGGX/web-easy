@@ -1,0 +1,52 @@
+{
+  "name": "config-test",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/config-test/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/config-test",
+        "main": "packages/config-test/src/index.ts",
+        "tsConfig": "packages/config-test/tsconfig.lib.json",
+        "assets": [
+          "packages/config-test/*.md",
+          {
+            "input": "./packages/config-test/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/config-test/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/config-test",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./packages/config-test",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/config-test/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

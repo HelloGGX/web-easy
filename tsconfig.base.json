@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "config-test": ["packages/config-test/src/index.ts"],
       "web-config": ["packages/web-config/src/index.ts"],
       "web-easy": ["packages/web-easy/src/index.ts"]
     }
